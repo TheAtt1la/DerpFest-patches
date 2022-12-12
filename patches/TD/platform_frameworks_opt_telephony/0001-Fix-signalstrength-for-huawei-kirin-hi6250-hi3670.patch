@@ -1,8 +1,15 @@
-From 406b9d09787e9674356cf8538adcc66986a4fdcb Mon Sep 17 00:00:00 2001
-From: TheAtt1la <alittauwu@gmail.com>
-Date: Mon, 12 Dec 2022 18:30:33 -0300
-Subject: [PATCH] Fix signalstrength for huawei kirin (hi6250, hi3670)
+From a31d0bb7e5d54e601caae5389ba9c8e2cd14f80a Mon Sep 17 00:00:00 2001
+From: Raphael Mounier <mounierr07@gmail.com>
+Date: Thu, 6 Oct 2022 08:35:38 +0200
+Subject: [PATCH 05/10] Fix signalstrength for huawei kirin (hi6250, hi3670)
 
+The RILUtils.convertHalSignalStrength function does not work correctly under Huawei hi6250 and hi3660 platform. We have therefore replaced this function with a new one specifically for this Kirin platform.
+
+ 23/11/2021 :
+  Initial release for Android 11
+
+ 06/10/2022 :
+  Android 13 release
 ---
  .../com/android/internal/telephony/RIL.java | 118 +++++++++++++++++++++++++++++++++++++++++++
  .../internal/telephony/RadioIndication.java |  20 ++++++--
