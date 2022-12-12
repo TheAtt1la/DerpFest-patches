@@ -135,6 +135,7 @@ index 70431f6..676a7af 100644
 +	}
 +
 +
++
       /**
       * Get the HAL version.
       *
