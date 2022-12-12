@@ -24,7 +24,7 @@ index 49e8297c45..810afd8fe6 100644
                  new CellSignalStrengthNr());
      }
 
-+        /**
++     /**
 +     * Fixup for SignalStrength for Huawei device
 +     * @param signalStrength the initial signal strength
 +     * @return a new SignalStrength
@@ -142,7 +142,7 @@ index 49e8297c45..810afd8fe6 100644
 +
 +	}
 +
-+ 
++
      /**
       * Get the HAL version.
       *
