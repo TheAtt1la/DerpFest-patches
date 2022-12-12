@@ -4,14 +4,14 @@ Date: Mon, 12 Dec 2022 18:30:33 -0300
 Subject: [PATCH] Fix signalstrength for huawei kirin (hi6250, hi3670)
 
 ---
- RIL.java             | 118 +++++++++++++++++++++++++++++++++++++++++++
- RadioIndication.java |  20 ++++++--
+ .../com/android/internal/telephony/RIL.java | 118 +++++++++++++++++++++++++++++++++++++++++++
+ .../internal/telephony/RadioIndication.java |  20 ++++++--
  2 files changed, 134 insertions(+), 4 deletions(-)
 
-diff --git a/RIL.java b/RIL.java
+diff --git a/src/java/com/android/internal/telephony/RIL.java b/src/java/com/android/internal/telephony/RIL.java
 index 70431f6..e66a1c4 100644
---- a/RIL.java
-+++ b/RIL.java
+--- a/src/java/com/android/internal/telephony/RIL.java
++++ b/src/java/com/android/internal/telephony/RIL.java
 @@ -5939,6 +5939,124 @@ public class RIL extends BaseCommands implements CommandsInterface {
                  new CellSignalStrengthTdscdma(), new CellSignalStrengthLte(),
                  new CellSignalStrengthNr());
@@ -137,10 +137,10 @@ index 70431f6..e66a1c4 100644
  
      /**
       * Get the HAL version.
-diff --git a/RadioIndication.java b/RadioIndication.java
+diff --git a/src/java/com/android/internal/telephony/RadioIndication.java b/src/java/com/android/internal/telephony/RadioIndication.java
 index d947d53..34a9afc 100644
---- a/RadioIndication.java
-+++ b/RadioIndication.java
+--- a/src/java/com/android/internal/telephony/RadioIndication.java
++++ b/src/java/com/android/internal/telephony/RadioIndication.java
 @@ -241,13 +241,25 @@ public class RadioIndication extends IRadioIndication.Stub {
  
      public void currentSignalStrength(int indicationType,
