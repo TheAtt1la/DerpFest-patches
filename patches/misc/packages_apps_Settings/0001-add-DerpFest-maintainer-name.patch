@@ -4,13 +4,13 @@ Date: Sun, 4 Dec 2022 14:25:58 -0300
 Subject: [PATCH] add DerpFest maintainer name
 
 ---
- derp_strings.xml | 4 ++--
+ res/values/derp_strings.xml | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/derp_strings.xml b/derp_strings.xml
+diff --git a/res/values/derp_strings.xml b/res/values/derp_strings.xml
 index 34ca753..be5ea00 100644
---- a/derp_strings.xml
-+++ b/derp_strings.xml
+--- a/res/values/derp_strings.xml
++++ b/res/values/derp_strings.xml
 @@ -24,8 +24,8 @@
  
      <!-- DerpFest maintainer -->
