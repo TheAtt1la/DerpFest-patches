@@ -6,7 +6,7 @@ Subject: [PATCH] tebe
 ---
  src/java/com/android/internal/RIL.java             | 120 ++++++++++++++++++++++++++++++++++++++++++-
  src/java/com/android/internal/RadioIndication.java |  20 ++++++--
- 2 files changed, 135 insertions(+), 5 deletions(-)
+ 2 files changed, 133 insertions(+), 5 deletions(-)
  mode change 100644 => 100755 RIL.java
  mode change 100644 => 100755 RadioIndication.java
 
