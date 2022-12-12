@@ -19,11 +19,12 @@ diff --git a/src/java/com/android/internal/telephony/RIL.java b/src/java/com/and
 index 49e8297c45..810afd8fe6 100644
 --- a/src/java/com/android/internal/telephony/RIL.java
 +++ b/src/java/com/android/internal/telephony/RIL.java
-@@ -5904,6 +5904,125 @@ public class RIL extends BaseCommands implements CommandsInterface {
+@@ -5939,7 +5939,125 @@ public class RIL extends BaseCommands implements CommandsInterface {
+                 new CellSignalStrengthTdscdma(), new CellSignalStrengthLte(),
                  new CellSignalStrengthNr());
      }
- 
-+    /**
+
++        /**
 +     * Fixup for SignalStrength for Huawei device
 +     * @param signalStrength the initial signal strength
 +     * @return a new SignalStrength
@@ -141,29 +142,30 @@ index 49e8297c45..810afd8fe6 100644
 +
 +	}
 +
-+
++ 
      /**
       * Get the HAL version.
       *
-diff --git a/src/java/com/android/internal/telephony/RadioIndication.java b/src/java/com/android/internal/telephony/RadioIndication.java
-index c7244be82e..5df3f99896 100644
---- a/src/java/com/android/internal/telephony/RadioIndication.java
-+++ b/src/java/com/android/internal/telephony/RadioIndication.java
-@@ -241,13 +241,26 @@ public class RadioIndication extends IRadioIndication.Stub {
+diff --git a/src/java/com/android/internal/RadioIndication.java b/src/java/com/android/internal/RadioIndication.java
+old mode 100644
+new mode 100755
+index d947d53..907d574
+--- a/src/java/com/android/internal/RadioIndication.java
++++ b/src/java/com/android/internal/RadioIndication.java
+@@ -241,13 +241,25 @@ public class RadioIndication extends IRadioIndication.Stub {
  
      public void currentSignalStrength(int indicationType,
                                        android.hardware.radio.V1_0.SignalStrength signalStrength) {
 -        mRil.processIndication(RIL.RADIO_SERVICE, indicationType);
++        SignalStrength ss = null;
  
 -        SignalStrength ssInitial = RILUtils.convertHalSignalStrength(signalStrength);
-+        SignalStrength ss = null;
-+
 +        mRil.processIndication(RIL.RADIO_SERVICE, indicationType);
  
 -        SignalStrength ss = mRil.fixupSignalStrength10(ssInitial);
          // Note this is set to "verbose" because it happens frequently
--        if (RIL.RILJ_LOGV) mRil.unsljLogvRet(RIL_UNSOL_SIGNAL_STRENGTH, ss);
-+	if (RIL.RILJ_LOGV) mRil.unsljLogvRet(RIL_UNSOL_SIGNAL_STRENGTH, signalStrength);
+-        if (mRil.isLogvOrTrace()) mRil.unsljLogvRet(RIL_UNSOL_SIGNAL_STRENGTH, ss);
++        if (RIL.RILJ_LOGV) mRil.unsljLogvRet(RIL_UNSOL_SIGNAL_STRENGTH, signalStrength);
 +
 +	// Fix signalStrength for Huawei
 +	String hardware = android.os.SystemProperties.get("ro.hardware", "");
@@ -181,5 +183,5 @@ index c7244be82e..5df3f99896 100644
          if (mRil.mSignalStrengthRegistrant != null) {
              mRil.mSignalStrengthRegistrant.notifyRegistrant(new AsyncResult (null, ss, null));
 -- 
-2.25.1
+2.38.1
 
