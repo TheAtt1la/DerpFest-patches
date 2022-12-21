@@ -11,18 +11,18 @@ diff --git a/common/common-vendor.mk b/common/common-vendor.mk
 index 4e43178..67422f3 100644
 --- a/common/common-vendor.mk
 +++ b/common/common-vendor.mk
-@@ -42,24 +42,18 @@ PRODUCT_PACKAGES += \
+@@ -42,24 +42,16 @@ PRODUCT_PACKAGES += \
      GooglePackageInstaller \
      TagGoogle \
      CalculatorGooglePrebuilt \
 -    CalendarGooglePrebuilt \
-     Chrome-Stub \
+-    Chrome-Stub \
 -    Drive \
      GoogleContacts \
      GoogleTTS \
      LatinIMEGooglePrebuilt \
      LocationHistoryPrebuilt \
-     Maps \
+-    Maps \
      MarkupGoogle \
 -    Photos \
      PrebuiltDeskClockGoogle \
@@ -36,7 +36,7 @@ index 4e43178..67422f3 100644
      ConfigUpdater \
      DeviceIntelligenceNetworkPrebuilt \
      DevicePersonalizationPrebuiltPixel2022 \
-@@ -75,7 +69,6 @@ PRODUCT_PACKAGES += \
+@@ -75,7 +67,6 @@ PRODUCT_PACKAGES += \
      SettingsIntelligenceGooglePrebuilt \
      SetupWizardPrebuilt \
      TurboPrebuilt \
